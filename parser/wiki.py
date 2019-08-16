@@ -4,6 +4,7 @@ import re
 
 def get_link(topic):
     link='https://ru.wikipedia.org/wiki/'+topic.capitalize()
+    print(f'{link}')
     return link
 
 def get_topic_page(topic):
@@ -13,7 +14,13 @@ def get_topic_page(topic):
 
 def get_topic_text(topic):
     html_content = get_topic_page(topic)
-    words = re.findall("[Р°-СЏРђ-РЇ]{3,}",html_content)
+    words = re.findall("[а-яА-Я]{4,}",html_content)
+    #text = ' '.join(words)
+    return words
+
+def get_links_text(topic):
+    html_content = get_topic_page(topic)
+    words = re.findall('(id="Ссылки".*)',html_content)
     #text = ' '.join(words)
     return words
 
@@ -22,7 +29,7 @@ def get_topic_text(topic):
 # print(text[0:1000])
 
 def get_common_words(topic):
-    words_list = get_topic_text(topic)
+    words_list = get_links_text(topic)
     rate={}
     for word in words_list:
         if word in rate:
@@ -33,5 +40,6 @@ def get_common_words(topic):
     rate_list.sort(key = lambda x: -x[1])
     return rate_list
 
-dict1 = get_common_words('Р РѕСЃСЃРёСЏ')
-pprint(dict1)
+if __name__ == '__main__':
+    dict1 = get_common_words('Python')
+    pprint(dict1[:10])
