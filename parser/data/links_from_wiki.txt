@@ -1,0 +1,2 @@
+link : https://www.python.org/ - text : Официальный сайт
+link : https://wiki.python.org/moin/RussianLanguage - text : Каталог ссылок на русскоязычные материалы по Python на официальном вики-сайте.
