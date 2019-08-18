@@ -1,1 +1,4 @@
 jupyter
+pylint
+requests
+pyyaml
