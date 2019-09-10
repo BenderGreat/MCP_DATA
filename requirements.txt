@@ -2,3 +2,4 @@ jupyter
 pylint
 requests
 pyyaml
+bs4
